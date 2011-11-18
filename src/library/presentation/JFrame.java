@@ -78,12 +78,12 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("username");
+        jLabel1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darkShadow"));
+        jLabel1.setText("Username");
 
-        jLabel2.setText("password");
+        jLabel2.setText("Password");
 
         jTextField1.setBackground(java.awt.Color.lightGray);
-        jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -138,6 +138,12 @@ public class JFrame extends javax.swing.JFrame {
         Login login = new Login();
         login.setUsername(jTextField1.getText());
         login.setPassword(new String (jPasswordField1.getPassword()));
+        System.out.println(login.getUsername());
+        System.out.println(login.getPassword());
+        BookUI frame = new BookUI();
+        frame.setDefaultCloseOperation(BookUI.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(rootPaneCheckingEnabled);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -149,7 +155,7 @@ public class JFrame extends javax.swing.JFrame {
        jPasswordField1.setText("");
        jTextField1.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
-
+////
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed

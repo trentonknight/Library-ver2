@@ -10,15 +10,14 @@ package library.domain;
  * @author Jason N Mansfield
  */
 public class Login {
+    //**private Strings for both**//
+        private String password;
+        private String username;
     //**public constructor
     public Login(){
         password = "";
         username = "";
     }
-     //**private Strings for both**//
-        private String password;
-        private String username;
-
     //**public setters**//
     public void setPassword(String password){
         this.password = password;
