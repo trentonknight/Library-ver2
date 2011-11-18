@@ -61,6 +61,14 @@ public class Login {
         hash = 41 * hash + (this.username != null ? this.username.hashCode() : 0);
         return hash;
     }
-
-
+    //*validate*//
+     public boolean validate() {
+        if (password == null || password.equals("")) {
+            return false;
+        }
+        if (username == null || username.equals("")) {
+            return false;
+        }
+        return true;
+    }
 }
