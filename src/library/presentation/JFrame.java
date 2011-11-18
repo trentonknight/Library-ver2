@@ -10,8 +10,11 @@
  */
 package library.presentation;
 
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import library.domain.Login;
 import library.business.AuthenticationMgr;
+
 
 /**
  *
@@ -19,8 +22,20 @@ import library.business.AuthenticationMgr;
  */
 public class JFrame extends javax.swing.JFrame {
 
+
     /** Creates new form JFrame */
     public JFrame() {
+
+try {
+    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+            UIManager.setLookAndFeel(info.getClassName());
+            break;
+        }
+    }
+} catch (Exception e) {
+    // If Nimbus is not available, you can set the GUI to another look and feel.
+}
         initComponents();
     }
 
@@ -56,7 +71,7 @@ public class JFrame extends javax.swing.JFrame {
         });
 
         jPasswordField1.setBackground(java.awt.Color.lightGray);
-        jPasswordField1.setText("pppppppp");
+        jPasswordField1.setText("passwordHere");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);

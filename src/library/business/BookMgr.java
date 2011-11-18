@@ -6,7 +6,6 @@
 package library.business;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import library.domain.Book;
 
 /**
@@ -14,12 +13,11 @@ import library.domain.Book;
  * @author trentonknight
  */
 public class BookMgr {
-
+ 
  List<Object> newbook = new ArrayList<Object>();
 
     public void addBook(Book book){
         boolean add = newbook.add(book);
     }
-
 
 }
