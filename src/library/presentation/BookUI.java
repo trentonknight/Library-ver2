@@ -11,6 +11,7 @@
 
 package library.presentation;
 import library.domain.Book;
+import library.business.*;
 /**
  *
  * @author trentonknight
@@ -129,9 +130,9 @@ public class BookUI extends javax.swing.JFrame {
         book.setTitle(jTextField1.getText());
         book.setIsbn(jTextField2.getText());
         book.setAuthor(jTextField3.getText());
-        System.out.println(book.getTitle());
-        System.out.println(book.getIsbn());
-        System.out.println(book.getAuthor());
+        System.out.println(book.toString());
+        BookMgr bkmgr = new BookMgr();
+        BookSort sort = new BookSort();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

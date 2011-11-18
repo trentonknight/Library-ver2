@@ -38,6 +38,15 @@ public String getIsbn(){
 public String getAuthor(){
     return author;
 }
+public String getBook() {
+    return "Author: " + author + "\n Title: " + title + "\n ISBN: " + isbn;
+  }
+
+@Override
+  public String toString() {
+    return "["+getBook()+"]";
+  }
+
  //**boolean test objects**//
      @Override
     public boolean equals(Object obj) {

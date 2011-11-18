@@ -8,9 +8,11 @@
  *
  * Created on Nov 12, 2011, 11:29:27 PM
  */
-
 package library.presentation;
+
 import library.domain.Login;
+import library.business.AuthenticationMgr;
+
 /**
  *
  * @author trentonknight
@@ -21,9 +23,6 @@ public class JFrame extends javax.swing.JFrame {
     public JFrame() {
         initComponents();
     }
-
-
-
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -134,26 +133,36 @@ public class JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //*get login info
+        //*Domain*//
         Login login = new Login();
         login.setUsername(jTextField1.getText());
-        login.setPassword(new String (jPasswordField1.getPassword()));
+        login.setPassword(new String(jPasswordField1.getPassword()));
+        //*Business*//
+        AuthenticationMgr authMgr = new AuthenticationMgr();
+        boolean success = authMgr.authenticate(login);
+        //*Output for troubleshooting*//
         System.out.println(login.getUsername());
         System.out.println(login.getPassword());
-        BookUI frame = new BookUI();
-        frame.setDefaultCloseOperation(BookUI.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(rootPaneCheckingEnabled);
+        //*If authenticated in business layer launch Book GUI*//
+        if (success) {
+            BookUI frame = new BookUI();
+            frame.setDefaultCloseOperation(BookUI.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(rootPaneCheckingEnabled);
+        } else {
+            //*If not authenticated close application*//
+            System.exit(0);
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       jPasswordField1.setText("");
-       jTextField1.setText("");
+        jPasswordField1.setText("");
+        jTextField1.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 ////
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -165,16 +174,16 @@ public class JFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new JFrame().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -186,5 +195,4 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
-
 }
