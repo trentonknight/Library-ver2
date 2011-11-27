@@ -16,13 +16,14 @@ public class BookMgr {
     {
     Factory factory = new Factory();
     IBookSvc bookSvc = factory.getBookSvc();
-    return bookSvc.create(book);
+    return bookSvc.add(book);
     }
     public Book retBook(Book book)
     {
     Factory factory = new Factory();
     IBookSvc bookSvc = factory.getBookSvc();
-    return bookSvc.retrieve(book);
+    book = bookSvc.retrieve(book);
+    return book;
     }
     
 }

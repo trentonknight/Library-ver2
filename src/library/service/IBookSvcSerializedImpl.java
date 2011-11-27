@@ -3,10 +3,7 @@
  * and open the template in the editor.
  */
 package library.service;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import library.domain.*;
 
 /**
@@ -15,25 +12,29 @@ import library.domain.*;
  */
 public class IBookSvcSerializedImpl implements IBookSvc {
 //*serializing
-    public Book create(Book book) {
+    public Book add(Book book){
         try{
-        ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("output.txt"));
-        output.writeObject(book);
+        FileOutputStream fos = new FileOutputStream("stream.txt");
+        ObjectOutputStream output = new ObjectOutputStream(fos);
+        System.out.println(book.toString());
+        output.writeObject(book);  
         output.flush();
         output.close();
         }catch(Exception e){
-            
-        }
+            System.out.print("Falure to write!");
+      }
         return book;
     }
 //*deserializing
     public Book retrieve(Book book) {
+        
         try{
-            ObjectInputStream input = new ObjectInputStream(new FileInputStream("output.txt"));
-            book = (Book)input.readObject();
+            book = null;
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream("stream.txt"));
+            book = (Book)input.readObject(); 
             input.close();
         }catch(Exception e){
-            
+            System.out.print("Falure to read!");
         }
         return book;
 

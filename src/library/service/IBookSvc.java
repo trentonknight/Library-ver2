@@ -10,6 +10,6 @@ import library.domain.*;
  */
 public interface IBookSvc {
     
-   public Book create(Book book);
+   public Book add(Book book);
    public Book retrieve(Book book);
 }

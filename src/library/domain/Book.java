@@ -5,12 +5,14 @@
 
 package library.domain;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author trentonknight
  */
-public class Book {
+public class Book implements Serializable {
 private String title;
 private String isbn;
 private String author;

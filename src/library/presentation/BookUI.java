@@ -138,7 +138,6 @@ public class BookUI extends javax.swing.JFrame {
         book.setTitle(jTextField1.getText());
         book.setIsbn(jTextField2.getText());
         book.setAuthor(jTextField3.getText());
-       // System.out.println(book.toString());
         BookMgr bkmgr = new BookMgr();
         Book createBook = bkmgr.createBook(book);
         BookSort sort = new BookSort();
@@ -147,8 +146,8 @@ public class BookUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Book book = new Book();
         BookMgr bkmgr = new BookMgr();
-        Book retBook = bkmgr.retBook(book);
-        System.out.println(retBook.toString());
+        book = bkmgr.retBook(book);
+        jTextArea1.setText(book.toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
