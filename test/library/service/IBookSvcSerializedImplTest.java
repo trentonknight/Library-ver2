@@ -17,20 +17,17 @@ public class IBookSvcSerializedImplTest {
     public IBookSvcSerializedImplTest() {
     }
 
-    
-
     /**
-     * Test of create method, of class IBookSvcSerializedImpl.
+     * Test of add method, of class IBookSvcSerializedImpl.
      */
     @Test
-    public void testCreate() {
-        System.out.println("create");
+    public void testAdd() {
+        System.out.println("add");
         Book book = null;
         IBookSvcSerializedImpl instance = new IBookSvcSerializedImpl();
         Book expResult = null;
-        Book result = instance.create(book);
+        Book result = instance.add(book);
         assertEquals(expResult, result);
-        
     }
 
     /**
@@ -44,8 +41,5 @@ public class IBookSvcSerializedImplTest {
         Book expResult = null;
         Book result = instance.retrieve(book);
         assertEquals(expResult, result);
-        
     }
-
-   
 }
