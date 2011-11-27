@@ -154,12 +154,9 @@ try {
         login.setPassword(new String(jPasswordField1.getPassword()));
         //*Business*//
         AuthenticationMgr authMgr = new AuthenticationMgr();
-        boolean success = authMgr.authenticate(login);
-        //*Output for troubleshooting*//
-        System.out.println(login.getUsername());
-        System.out.println(login.getPassword());
+        Login Newlogin = authMgr.createUser(login);
         //*If authenticated in business layer launch Book GUI*//
-        if (success) {
+        if(Newlogin.validate()){
             BookUI frame = new BookUI();
             frame.setDefaultCloseOperation(BookUI.EXIT_ON_CLOSE);
             frame.pack();

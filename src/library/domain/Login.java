@@ -4,12 +4,14 @@
 
 package library.domain;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author Jason N Mansfield
  */
-public class Login {
+public class Login implements Serializable{
     //**private Strings for both**//
         private String password;
         private String username;
