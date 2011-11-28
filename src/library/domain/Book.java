@@ -15,12 +15,12 @@ import java.io.Serializable;
 public class Book implements Serializable {
 private String title;
 private String isbn;
-private String author;
+private int id;
 
 public Book(){
     title = "";
     isbn = "";
-    author = "";
+    id = 0x0;
 }
 public void setTitle(String title){
     this.title = title;
@@ -28,8 +28,8 @@ public void setTitle(String title){
 public void setIsbn(String isbn){
     this.isbn = isbn;
 }
-public void setAuthor(String author){
-    this.author = author;
+public void setID(int id){
+    this.id = id;
 }
 public String getTitle(){
     return title;
@@ -37,11 +37,11 @@ public String getTitle(){
 public String getIsbn(){
     return isbn;
 }
-public String getAuthor(){
-    return author;
+public int getID(){
+    return id;
 }
 public String getBook() {
-    return "Author: " + author + "\n Title: " + title + "\n ISBN: " + isbn;
+    return "id: " + id + "\n Title: " + title + "\n ISBN: " + isbn;
   }
 
 @Override
@@ -67,19 +67,21 @@ public String getBook() {
         {
             return false;
         }
-        if(!(this.author.equals(bk.author)))
-        {
-            return false;
-        }
+      
         return true;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 5;
         hash = 97 * hash + (this.title != null ? this.title.hashCode() : 0);
         hash = 97 * hash + (this.isbn != null ? this.isbn.hashCode() : 0);
-        hash = 97 * hash + (this.author != null ? this.author.hashCode() : 0);
+        hash = 97 * hash + this.id;
         return hash;
     }
+
+   
+
+    
+   
 }
