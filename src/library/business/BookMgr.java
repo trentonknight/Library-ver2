@@ -12,16 +12,16 @@ import library.service.IBookSvc;
  * @author trentonknight
  */
 public class BookMgr {
-    public Book createBook(Book book)
-    {
+    public Book createBook(Book book) throws Exception
+    { 
     Factory factory = new Factory();
-    IBookSvc bookSvc = factory.getBookSvc();
+    IBookSvc bookSvc = (IBookSvc) factory.getService("IBookSvc");
     return bookSvc.add(book);
     }
-    public Book retBook(Book book)
+    public Book retBook(Book book) throws Exception
     {
     Factory factory = new Factory();
-    IBookSvc bookSvc = factory.getBookSvc();
+    IBookSvc bookSvc = (IBookSvc) factory.getService("IBookSvc");
     book = bookSvc.retrieve(book);
     return book;
     }

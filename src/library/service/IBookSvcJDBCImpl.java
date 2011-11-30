@@ -7,7 +7,6 @@ package library.service;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sql.*;
 import library.domain.Book;
 
 /**

@@ -10,6 +10,8 @@
  */
 
 package library.presentation;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import library.domain.*;
 import library.business.*;
 /**
@@ -162,14 +164,22 @@ public class BookUI extends javax.swing.JFrame {
         int idNum = Integer.parseInt(jFormattedTextField1.getText());
         book.setID(idNum);
         BookMgr bkmgr = new BookMgr();
-        Book createBook = bkmgr.createBook(book);
+        try {
+            Book createBook = bkmgr.createBook(book);
+        } catch (Exception ex) {
+            Logger.getLogger(BookUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         BookSort sort = new BookSort();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Book book = new Book();
         BookMgr bkmgr = new BookMgr();
-        book = bkmgr.retBook(book);
+        try {
+            book = bkmgr.retBook(book);
+        } catch (Exception ex) {
+            Logger.getLogger(BookUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jTextArea1.setText(book.toString());
     }//GEN-LAST:event_jButton2ActionPerformed
 
