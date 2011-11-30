@@ -27,6 +27,9 @@ public class IBookSvcJDBCImpl implements IBookSvc {
     public Book add(Book book) {
         try {
             Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+	    String sql = "INSERT INTO library(id,isbn,title)VALUES('23','12345','C++ is great')";
+            stmt.executeUpdate(sql);
         } catch (Exception ex) {
             Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
