@@ -158,18 +158,18 @@ public class BookUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Book book = new Book();
-        book.setTitle(jTextField1.getText());
-        book.setIsbn(jTextField2.getText());
-        int idNum = Integer.parseInt(jFormattedTextField1.getText());
-        book.setID(idNum);
-        BookMgr bkmgr = new BookMgr();
         try {
-            Book createBook = bkmgr.createBook(book);
+            Book book = new Book();
+            book.setTitle(jTextField1.getText());
+            book.setIsbn(jTextField2.getText());
+            int idNum = Integer.parseInt(jFormattedTextField1.getText());
+            book.setID(idNum);
+            BookMgr bkmgr = new BookMgr();
+            book = bkmgr.createBook(book);
+            BookSort sort = new BookSort();
         } catch (Exception ex) {
             Logger.getLogger(BookUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        BookSort sort = new BookSort();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

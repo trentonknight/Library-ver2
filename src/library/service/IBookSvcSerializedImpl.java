@@ -26,7 +26,7 @@ public class IBookSvcSerializedImpl implements IBookSvc {
         return book;
     }
 //*deserializing
-    public Book retrieve(Book book) {
+    public Book retrieve(Book book){
         
         try{
             book = null;

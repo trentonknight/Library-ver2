@@ -1,1 +1,1 @@
-IBookSvs = services.IBookSvcSerializedImpl
+IBookSvc = library.service.IBookSvcSerializedImpl
