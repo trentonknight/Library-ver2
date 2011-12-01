@@ -32,4 +32,7 @@ public class Factory {
      public IBookSvc getBookSvc(){
         return new IBookSvcSerializedImpl();
     }
+    public SelectionOfSvc selServices(){
+        return new ISelectSvcImpl();
+    }
 }
