@@ -16,7 +16,7 @@ import library.domain.Book;
 public class IBookSvcJDBCImpl implements IBookSvc {
     
     
-   private String url = "jdbc:mysql://localhost/library?" + "user=root&password=admin";
+   private String url = "jdbc:mysql://localhost/library?user=root&password=admin";
     
    private Connection getConnection() throws Exception { 
       return DriverManager.getConnection(url); 
@@ -27,8 +27,11 @@ public class IBookSvcJDBCImpl implements IBookSvc {
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
-	    String sql = "INSERT INTO library(id,isbn,title)VALUES('23','12345','C++ is great')";
+            
+	    String sql = "INSERT INTO book(id,isbn,title)VALUES('21','123454','test')";
             stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
         } catch (Exception ex) {
             Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

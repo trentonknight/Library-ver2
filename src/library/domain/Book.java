@@ -41,12 +41,12 @@ public int getID(){
     return id;
 }
 public String getBook() {
-    return "id: " + id + "\n Title: " + title + "\n ISBN: " + isbn;
+    return id + "," + isbn + "," + title;
   }
 
 @Override
   public String toString() {
-    return "["+getBook()+"]";
+    return ""+getBook()+"";
   }
 
  //**boolean test objects**//
