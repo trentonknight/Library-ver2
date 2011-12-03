@@ -44,18 +44,14 @@ public class IBookSvcJDBCImpl implements IBookSvc {
         try {
             Connection conn = null;
             conn = getConnection();
-            Statement stmt = null;
-            String query = "select isbn, title, author from " + url + ".book";
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-
-            while (rs.next()) {
-                book.setIsbn(rs.getString("isbn"));
-                book.setTitle(rs.getString("title"));
-                book.setAuthor(rs.getString("author"));
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery("SELECT * FROM  book");
+            while (res.next()) {
+                book.setIsbn(res.getString("isbn"));
+                book.setTitle(res.getString("title"));
+                book.setAuthor(res.getString("author"));
             }
-
-
+            conn.close();
         } catch (Exception ex) {
             Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
