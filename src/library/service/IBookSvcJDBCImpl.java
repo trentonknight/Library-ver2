@@ -57,4 +57,47 @@ public class IBookSvcJDBCImpl implements IBookSvc {
         }
         return book;
     }
+
+    public Book search(Book book) {
+        String isbn = "";
+        isbn = book.getIsbn();
+        try {
+            Connection conn = null;
+            conn = getConnection();
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery("SELECT * FROM book WHERE isbn =" + isbn);
+            while (res.next()) {
+                book.setIsbn(res.getString("isbn"));
+                book.setTitle(res.getString("title"));
+                book.setAuthor(res.getString("author"));
+            }
+
+            conn.close();
+        } catch (Exception ex) {
+            Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return book;
+    }
+
+    public Book delete(Book book) {
+        String isbn = "";
+        isbn = book.getIsbn();
+        try {
+            Connection conn = null;
+            conn = getConnection();
+            Statement st = conn.createStatement();
+            ResultSet res = st.executeQuery("SELECT * FROM book WHERE isbn =" + isbn);
+            while (res.next()) {
+                book.setIsbn(res.getString("isbn"));
+                book.setTitle(res.getString("title"));
+                book.setAuthor(res.getString("author"));
+            }
+            int executeUpdate = st.executeUpdate("DELETE FROM book WHERE isbn =" + isbn);
+            System.out.println("Row is deleted successfully.");
+            conn.close();
+        } catch (Exception ex) {
+            Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return book;
+    }
 }

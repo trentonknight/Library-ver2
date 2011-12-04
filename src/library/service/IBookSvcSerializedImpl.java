@@ -40,5 +40,13 @@ public class IBookSvcSerializedImpl implements IBookSvc {
 
     }
 
+    public Book search(Book book) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public Book delete(Book book) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     
 }

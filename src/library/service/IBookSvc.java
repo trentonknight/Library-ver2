@@ -12,5 +12,7 @@ public interface IBookSvc {
     
    public Book add(Book book);
    public Book retrieve(Book book);
+   public Book search(Book book);
+   public Book delete(Book book);
 
 }

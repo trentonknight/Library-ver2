@@ -25,5 +25,19 @@ public class BookMgr{
     book = bookSvc.retrieve(book);
     return book;
     }
+    public Book searchBook(Book book) throws Exception
+    {
+    Factory factory = new Factory();
+    IBookSvc bookSvc = (IBookSvc) factory.getService("IBookSvc");
+    book = bookSvc.search(book);
+    return book;
+    }
+    public Book delBook(Book book) throws Exception
+    {
+    Factory factory = new Factory();
+    IBookSvc bookSvc = (IBookSvc) factory.getService("IBookSvc");
+    book = bookSvc.delete(book);
+    return book;
+    }
     
 }
