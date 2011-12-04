@@ -29,7 +29,6 @@ public class IBookSvcJDBCImpl implements IBookSvc {
             pstmt.setString(1, book.getIsbn());
             pstmt.setString(2, book.getTitle());
             pstmt.setString(3, book.getAuthor());
-
             pstmt.executeUpdate();
             pstmt.close();
             conn.close();
@@ -51,6 +50,7 @@ public class IBookSvcJDBCImpl implements IBookSvc {
                 book.setTitle(res.getString("title"));
                 book.setAuthor(res.getString("author"));
             }
+
             conn.close();
         } catch (Exception ex) {
             Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
