@@ -76,6 +76,9 @@ public class IBookSvcJDBCImpl implements IBookSvc {
         } catch (Exception ex) {
             Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if("".equals(book.getTitle()) || "".equals(book.getAuthor())){
+        book.setIsbn("");
+        }
         return book;
     }
 
@@ -98,6 +101,9 @@ public class IBookSvcJDBCImpl implements IBookSvc {
         } catch (Exception ex) {
             Logger.getLogger(IBookSvcJDBCImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+        book.setAuthor("");
+        book.setIsbn("");
+        book.setTitle("");
         return book;
     }
 }
